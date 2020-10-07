@@ -11,20 +11,20 @@ export default props => {
 
     const stylesButton = [styles.button]
 
-    if(props.double) {
-        stylesButton.push(styles.buttonDouble)
-    }
+    if(props.double) stylesButton.push(styles.buttonDouble)
 
-    if(props.triple) {
-        stylesButton.push(styles.buttonTriple)
-    }
+    if(props.triple) stylesButton.push(styles.buttonTriple)
 
     if(props.operation) stylesButton.push(styles.operationButton)
 
+    function labelName() {
+        props.onClick(props.label)
+    }
+
     return (
         <>
-            <TouchableHighlight onPress={() => props.onCLick(props.label)}>
-                <Text style={styles.stylesButton}>{props.label}</Text>
+            <TouchableHighlight onPress={labelName}>
+                <Text style={stylesButton}>{props.label}</Text>
             </TouchableHighlight>
         </>
     )
